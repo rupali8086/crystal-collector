@@ -49,19 +49,12 @@ $(document).ready(function() {
   }
   startGame();
 
-  $('.gem').mouseenter(function (data) {
-            $(this).css('animated ','bounce');
-        });
-      $('.gem').mouseenter(function (data) {
-            $(this).css('background-color','red');
-        });
-       
-  
- 	// listen for clicks on any of the gems by targeting the gem class
+   	// listen for clicks on any of the gems by targeting the gem class
   	$(".gem").on("click", function() {
  		   
-       var youClick = $(this).attr("id");
-       console.log(youClick);
+
+    var youClick = $(this).attr("id");
+    console.log(youClick);
       
       if (youClick == "gem1") {
         userNumber += gemOne;
@@ -77,7 +70,7 @@ $(document).ready(function() {
       $("#userScore").html(userNumber);
       setTimeout(function (){
         score();
-      gemResult();
+        gemResult();
       }, 10);
     });
 }); 
