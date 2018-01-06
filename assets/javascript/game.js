@@ -14,20 +14,22 @@ $(document).ready(function() {
   		gemThree = 1 + Math.floor(Math.random() * 12);
   		gemFour  = 1 + Math.floor(Math.random() * 12);
  		 	userNumber = 0;
-  		
+
+  	$("#randomNumber").html(computerNumber);
+    $("#userScore").html(userNumber);	
   	$("#wins").html(wins);
  		$("#losses").html(losses);
- 		$("#randomNumber").html(computerNumber);
- 		$("#userScore").html(userNumber);
+ 		
  		gemResult();
  	}
  
  	function score() {
  		// check if user has lost
  		if (userNumber > computerNumber)  {
+
  			losses++;
       var b =  userNumber - computerNumber;
- 			alert("Sorry!!! You lose, Your Number is " + userNumber + "--- you loose by "+ b );
+      alert("Sorry!!! You lose, Your Number is " + userNumber + "--- you loose by "+ b );
  			startGame();
  		}
     // check if user has won
@@ -45,28 +47,37 @@ $(document).ready(function() {
  		console.log("ComputerNumber : " + computerNumber + " userNumber: " + userNumber);
  		console.log("----------------------------------");
   }
- 
- 	startGame();
+  startGame();
+
+  $('.gem').mouseenter(function (data) {
+            $(this).css('animated ','bounce');
+        });
+      $('.gem').mouseenter(function (data) {
+            $(this).css('background-color','red');
+        });
+       
   
  	// listen for clicks on any of the gems by targeting the gem class
   	$(".gem").on("click", function() {
- 		
-  		var youClick = $(this).attr("id");
-          console.log(youClick);
+ 		   
+       var youClick = $(this).attr("id");
+       console.log(youClick);
       
-         if (youClick == "gem1") {
-          	userNumber += gemOne;
-          } else if (youClick == "gem2") {
-         	userNumber += gemTwo;
-         } else if (youClick == "gem3") {
-         	userNumber += gemThree;
-         } else if (youClick == "gem4") {
-         userNumber += gemFour;
-         } else {
-          	console.log("error");
-          }
-         $("#userScore").html(userNumber);
-          gemResult();
-          score();
-      });
+      if (youClick == "gem1") {
+        userNumber += gemOne;
+      } else if (youClick == "gem2") {
+        userNumber += gemTwo;
+      } else if (youClick == "gem3") {
+        userNumber += gemThree;
+      } else if (youClick == "gem4") {
+        userNumber += gemFour;
+      } else {
+        console.log("error");
+      }
+      $("#userScore").html(userNumber);
+      setTimeout(function (){
+        score();
+      gemResult();
+      }, 10);
+    });
 }); 
