@@ -38,6 +38,7 @@
   }
   img{
   	margin: 20px;
+    cursor:pointer;
   }
   ul{
   	font-weight: bolder;

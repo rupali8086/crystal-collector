@@ -68,6 +68,7 @@ $(document).ready(function() {
         console.log("error");
       }
       $("#userScore").html(userNumber);
+      
       setTimeout(function (){
         score();
         gemResult();
