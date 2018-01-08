@@ -1,4 +1,8 @@
 $(document).ready(function() {
+  $('a').on('click', function(){
+  $('.wrap, a').toggleClass('active');
+  return false;
+});
     var gemOne, gemTwo, gemThree, gemFour;
   	var wins = 0;
   	var losses = 0;
